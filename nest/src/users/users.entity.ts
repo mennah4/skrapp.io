@@ -1,5 +1,6 @@
 import { IsEmail } from 'class-validator';
-import { Entity, PrimaryGeneratedColumn, Column, Unique } from 'typeorm';
+import { Todo } from 'src/todos/todos.entity';
+import { Entity, PrimaryGeneratedColumn, Column, Unique, OneToMany } from 'typeorm';
 
 @Entity('users')
 @Unique(["email"])
@@ -13,4 +14,7 @@ export class User {
 
     @Column()
     password: string;
+
+    @OneToMany(() => Todo, (todo) => todo.user)
+    todos: Todo[]
 }
