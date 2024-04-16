@@ -48,4 +48,12 @@ export class TodosService {
 
         return { id };
     }
+
+    async getTodosForUser(userId: number): Promise<Todo[]> {
+        const queryBuilder = this.todoRepository.createQueryBuilder('todo');
+        queryBuilder.leftJoinAndSelect('todo.user', 'user'); // Left join to include user details
+        queryBuilder.where('user.id = :userId', { userId });
+        queryBuilder.where('done = :done', { done: true });
+        return await queryBuilder.getMany();
+      }
 }

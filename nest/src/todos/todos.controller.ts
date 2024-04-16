@@ -13,6 +13,11 @@ export class TodosController {
         return this.todosService.findAllByUser(req.user.id);
     }
 
+    @Get('done')
+    async getTodosByStatus(@Request() req): Promise<Todo[]> {
+        return this.todosService.getTodosForUser(req.user.id);
+    }
+
     @Post()
     async create(@Request() req, @Body() createTodoDto: Todo): Promise<Todo> {
         return this.todosService.create({
