@@ -1,8 +1,10 @@
-import { Controller, Get } from '@nestjs/common';
+import { Controller, Get, UseGuards } from '@nestjs/common';
 import { TodosService } from './todos.service';
 import { Todo } from './todos.entity';
+import { AuthGuard } from 'src/auth/auth.guard';
 
 @Controller('todos')
+@UseGuards(AuthGuard)
 export class TodosController {
     constructor(private todosService: TodosService) { }
 
