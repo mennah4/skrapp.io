@@ -1,4 +1,4 @@
-import { Body, Controller, Delete, Get, Param, Patch, Post, Request, UseGuards } from '@nestjs/common';
+import { Body, Controller, Delete, Get, Param, Patch, Post, Query, Request, UseGuards } from '@nestjs/common';
 import { TodosService } from './todos.service';
 import { Todo } from './todos.entity';
 import { AuthGuard } from 'src/auth/auth.guard';
@@ -9,8 +9,8 @@ export class TodosController {
     constructor(private todosService: TodosService) { }
 
     @Get()
-    async findAll(@Request() req): Promise<Todo[]> {
-        return this.todosService.findAllByUser(req.user.id);
+    async findAll(@Request() req, @Query('sort_order') sortOrder): Promise<Todo[]> {
+        return this.todosService.findAllByUser(req.user.id, sortOrder);
     }
 
     @Get('done')

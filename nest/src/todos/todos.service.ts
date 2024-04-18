@@ -9,9 +9,10 @@ export class TodosService {
         private todoRepository: Repository<Todo>,
     ) { }
 
-    async findAllByUser(userId: number): Promise<Todo[]> {
+    async findAllByUser(userId: number, sortOrder): Promise<Todo[]> {
         return this.todoRepository.find({
-            where: { user: { id: userId } }
+            where: { user: { id: userId } },
+            order: { text: sortOrder === 'desc' ? 'DESC' : 'ASC' }
         });
     }
 
