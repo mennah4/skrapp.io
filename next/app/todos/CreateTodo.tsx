@@ -2,14 +2,9 @@
 import { Input } from "@nextui-org/input";
 import { Button } from "@nextui-org/button";
 import { useFormStatus } from "react-dom";
-import { useEffect } from "react";
 
 export default function CreateTodo({ createTodo }: any) {
     const { pending } = useFormStatus()
-
-    useEffect(() => {
-        console.log("pending", pending)
-    }, [pending])
 
     return (
         <div className="w-full flex items-center" >

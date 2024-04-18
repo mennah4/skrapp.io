@@ -12,8 +12,6 @@ export default function Login() {
             password: formData.get('password'),
         }
 
-        console.log(rawFormData)
-
         const res = await fetch('http://localhost:3002/auth/login', {
             method: 'POST',
             body: JSON.stringify(rawFormData),
