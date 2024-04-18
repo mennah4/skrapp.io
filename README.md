@@ -13,7 +13,15 @@
 * Run the application using the command npm run dev after installing the dependencies.
 * Your server will be running on port 3000
 * Use the account created to login or you can use mena@mail.com -> 123456 which is already created by me for testing.
+* The app screens
 
+!["Login page"](/Users/mennahjafar/Desktop/skrapp.io/next/assets/login.png)
+
+!["Welcome page"](/Users/mennahjafar/Desktop/skrapp.io/next/assets/welcome.png)
+
+!["Todos page"](/Users/mennahjafar/Desktop/skrapp.io/next/assets/todos.png)
+
+!["Todo details page"](/Users/mennahjafar/Desktop/skrapp.io/next/assets/todoDetails.png)
 
 ## Node
 * Run the application using the command node index.js
